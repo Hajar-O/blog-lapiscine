@@ -1,0 +1,16 @@
+{% extends'base.html.twig' %}
+{% block content %}
+
+
+   <article class="oneArticle">
+
+       <h1>{{ article.title }}</h1>
+       <p>{{ article.description }}</p>
+       <img src="{{ article.image }}" alt="">
+       <p>{{ article.content }}</p>
+       <p> {{ article.createdAt| date('d/m/y')}}</p>
+
+
+   </article>
+
+{% endblock %}

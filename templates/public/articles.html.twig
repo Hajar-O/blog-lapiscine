@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block meta_title %}
+     list Articles
+{% endblock meta_title %}
+
+{% block content %}
+
+    <h1> List des articles </h1>
+
+    <section class="articles">
+        {% for article in articles %}
+
+            {% if article.isPublished %}
+
+                <article class="myArticle">
+                    <h2>{{ article.title }}</h2>
+                    <p>{{ article.description }}</p>
+                <div class="pic">
+                    <img src="{{ article.image }}" alt="">
+                </div>
+                    <p><a href="{{ path('article',{id:article.id}) }}">Voir l'article</a></p>
+
+                </article>
+
+            {% endif %}
+        {% endfor %}
+    </section>
+
+{%  endblock %}
