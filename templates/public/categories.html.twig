@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+
+    <section class="listCategories">
+
+        {% for categorie in categories %}
+
+            <div class="eachCategory">
+                <h2>{{ categorie.title }}</h2>
+                <p><a href="{{ path('article-category',{id: categorie.id}) }}">Voir les articles</a></p>
+            </div>
+
+        {% endfor %}
+
+    </section>
+
+
+{% endblock %}

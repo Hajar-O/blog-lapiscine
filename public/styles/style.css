@@ -72,6 +72,24 @@ header{
     margin-bottom: 50px;
 
 }
+/*----------------LIST-CATEGORY------------*/
+.listCategories{
+    display: flex;
+    justify-content: center;
+}
+.eachCategory{
+    border: #555555 1px solid;
+    width: 20%;
+    padding: 30px;
+    margin: 40px;
+    text-align: center;
+}
+/*----------------404------------*/
+.error{
+    width: 60%;
+    margin: 40px;
+    margin: auto;
+}
 /*----------------FOOTER------------*/
 footer{
     text-align: center;
