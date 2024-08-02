@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ asset('styles/styleAdmin.css') }}">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+
+</head>
+
+
+<body>
+<header>
+    <div class="logo">
+        <a href="{{ path('home') }}">
+            <img class="newpaper" src=" {{ asset('img/s_letter.png') }}" alt="">
+        </a>
+
+    </div>
+    <nav class="nav_header">
+        <ul>
+            <li><a href="{{ path('home') }}">Dashboard</a></li>
+
+            <li><a href="{{ ('categories') }}">ADD article</a></li>
+            <li>Test</li>
+            <li>Test</li>
+        </ul>
+    </nav>
+</header>
+<main>
+
+    {#
+    vérifie si des messages flashes ont été enregistrés
+    par un controleur. Si oui, on les affiche
+    #}
+    {% for message in app.flashes('success') %}
+        <div class="error_message">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    {% block content %}
+    {% endblock %}
+</main>
+<footer class="footer">
+    <nav>
+        <ul>
+            <li> Mentions légales</li>
+            <li>Politique de confidentialité</li>
+            <li>Conditions générales</li>
+            <li>Aide (FAQ)</li>
+        </ul>
+    </nav>
+    <p> StayInTouch-News©-2024</p>
+</footer>
+</body>
+
+
+
+</html>

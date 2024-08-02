@@ -12,10 +12,14 @@
     <body>
         <header>
             <div class="logo">
-                <img class="newpaper" src=" {{ asset('img/s_letter.png') }}" alt="">
+                <a href="{{ path('home') }}">
+                    <img class="newpaper" src=" {{ asset('img/s_letter.png') }}" alt="">
+                </a>
+
             </div>
                 <nav class="nav_header">
                     <ul>
+                        <li><a href="{{ path('home') }}">Accueil</a></li>
                         <li><a href="{{ path('articles') }}">Les articles</a></li>
                         <li><a href="{{ ('categories') }}">Les catégories</a></li>
                         <li>Test</li>
@@ -30,6 +34,19 @@
                     {% endblock %}
         </main>
     <footer class="footer">
+        <nav>
+            <ul>
+                <li> Mentions légales</li>
+                <li>Politique de confidentialité</li>
+                <li>
+                    <div class="logo">
+                        <img class="test" src=" {{ asset('img/s_letter.png') }}" alt="">
+                    </div>
+                </li>
+                <li>Conditions générales</li>
+                <li>Aide (FAQ)</li>
+            </ul>
+        </nav>
         <p> StayInTouch-News©-2024</p>
     </footer>
     </body>
