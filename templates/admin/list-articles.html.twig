@@ -23,8 +23,9 @@
                     <td><h2>{{ article.title }}</h2></td>
                     <td>{{ article.createdAt | date('d/m/y') }}</td>
                     <td><p>{{ article.isPublished }}</p></td>
-                    <td>Modifier</td>
+                    <td><a href="{{ path('admin_update_article',{ id:article.id }) }}">UPDATE</a></td>
                     <td><a href="{{ path('admin_delete_article',{ id:article.id }) }}">Supprimer</a></td>
+
 
                 </tr>
 
