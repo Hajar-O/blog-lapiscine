@@ -3,7 +3,8 @@
 {% block content %}
 
     <section>
-
+<h1>Liste des categories</h1>
+    <p><a href="{{ path('admin_category_insert') }}">ADD category</a></p>
         <table>
 
             <tr>
@@ -22,15 +23,11 @@
                     <td><a href="{{ path('admin_category_update',{id:categorie.id}) }}">UP DATE</a></td>
                     <td><a href="{{ path('admin_category_delete',{id:categorie.id}) }}">DELETE</a></td>
                 </tr>
-
-
-
-
-
-
-
+                
+                
             {% endfor %}
         </table>
+    
 
 
 {% endblock %}
