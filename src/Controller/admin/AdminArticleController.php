@@ -64,6 +64,8 @@ class AdminArticleController extends AbstractController
                     $entityManager->flush();
 
                     $this->addFlash('success', 'l article à bien été ajouté');
+
+                    $this->redirectToRoute('admin_article');
                 }
         $articleCreateFormView = $articleForm->createView();
                 return $this->render('admin/insert-article.html.twig', [
@@ -81,10 +83,13 @@ class AdminArticleController extends AbstractController
         $articleCreateForm->handleRequest($request);
 
         if ($articleCreateForm->isSubmitted() && $articleCreateForm->isValid()) {
+            $article->setUpdatedAt(new \DateTime('NOW'));
             $entityManager->persist($article);
             $entityManager->flush();
 
+
             $this->addFlash('success', 'article enregistré');
+            return $this->redirectToRoute('admin_article');
         }
 
         $articleCreateFormView = $articleCreateForm->createView();

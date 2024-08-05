@@ -28,6 +28,7 @@ class Category
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $updatedAt = null;
 
+
     /**
      * @var Collection<int, Article>
      */
@@ -37,6 +38,10 @@ class Category
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+
+        $this->createdAt = new \DateTime();
+        $this->updatedAt = new \DateTime();
+
     }
 
     public function getId(): ?int

@@ -36,6 +36,11 @@ class Article
     private ?bool $isPublished = null;
 
     #[ORM\ManyToOne(inversedBy: 'articles')]
+    //Permet de supprimer "en cascade"
+    //les articles liés à une catégorie
+    //qd la catégorie est supprimée
+    //#[ORM\JoinColumn(onDelete: 'CASCADE')]
+    #[ORM\JoinColumn(nullable: true,onDelete: "SET NULL")]
     private ?category $category = null;
 
     public function __construct()
