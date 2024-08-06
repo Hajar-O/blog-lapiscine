@@ -9,11 +9,33 @@ img{
 }
 a{
   text-decoration: none;
+    color: rgb(51, 73, 44);
 }
-
+h1{
+    text-align: center;
+}
+/*-------------Flash-message-----------------*/
+.error_message{
+    color: white;
+    font-size: 40px;
+    background-color: #3a5231;
+    text-align: center;
+}
+.success_message{
+    color: white;
+    font-size: 40px;
+    background-color: green;
+    text-align: center;
+}
 /*-------------HEADER-----------------*/
+
+
 header {
-    background-color: #555555;
+    background-image: url("../../public/img/plante.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
     display: flex;
     justify-content: start;
     gap: 30%;
@@ -35,10 +57,17 @@ header {
     .nav_header ul {
         display: flex;
         justify-content: center;
-        gap: 50px;
+        gap: 20px;
         align-items: center;
         padding: 30px;
     }
+    .nav_header a{
+        color: #cccccc;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-radius: 8px;
+        padding: 10px;
+    }
+
 }
 /*----------------TABLE---------------*/
 table{
@@ -63,30 +92,7 @@ a{
 li{
     list-style: none;
 }
-header{
-    background-color: #555555;
-    display: flex;
-    justify-content: start;
-    gap: 30%;
-    padding: 20px;
-    align-items: center;
-    .logo{
-        width: 8%;
-    }
-    .newpaper{
-        width: 100%;
-    }
-    nav_header li {
-        padding: 20px;
-    }
-    .nav_header ul{
-        display: flex;
-        justify-content: center;
-        gap: 50px;
-        align-items: center;
-        padding: 30px;
-    }
-}
+
 /*----------------LES ARTICLES------------*/
 .articles{
     display: flex;
@@ -145,7 +151,7 @@ header{
 /*----------------FOOTER------------*/
 footer {
     text-align: center;
-    background-color: #555555;
+    background-color: #939a91;
     padding: 25px;
 
     ul{

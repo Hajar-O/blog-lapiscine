@@ -22,6 +22,7 @@
             <li><a href="{{ path('home') }}">Dashboard</a></li>
             <li><a href="{{ path('admin_article') }}">GERER LES ARTICLES</a></li>
             <li><a href="{{ path('admin_category') }}">GERER LES CATÉGORIES</a></li>
+            <li><a href="{{ path('admin_insert_user') }}">ADD ADMIN</a></li>
 
             <li><a href="{{ path('app_logout') }}">Déconnexion</a></li>
         </ul>
@@ -33,14 +34,20 @@
     vérifie si des messages flashes ont été enregistrés
     par un controleur. Si oui, on les affiche
     #}
-    {% for message in app.flashes('success') %}
-        <div class="error_message">
-            {{ message }}
-        </div>
-    {% endfor %}
+        {% for message in app.flashes('success') %}
+            <div class="success_message">
+                {{ message }}
+            </div>
+        {% endfor %}
 
-    {% block content %}
-    {% endblock %}
+        {% for message in app.flashes('error') %}
+            <div class="error_message">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        {% block content %}
+        {% endblock %}
 </main>
 <footer class="footer">
     <nav>
