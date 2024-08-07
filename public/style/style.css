@@ -15,11 +15,10 @@ a {
 }
 
 header {
-  background-image: url("../../public/img/plante.jpg");
+  background-image: url("../public/img/plante.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 70vh;
   display: flex;
   justify-content: start;
   gap: 30%;

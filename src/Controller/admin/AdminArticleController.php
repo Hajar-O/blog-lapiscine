@@ -7,9 +7,12 @@ use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 class AdminArticleController extends AbstractController
 {
@@ -46,7 +49,7 @@ class AdminArticleController extends AbstractController
         return $this->redirectToRoute('admin_article');
     }
     #[Route('/admin/insert/article', name: 'admin_insert_article')]
-    public function insertArticle(EntityManagerInterface $entityManager, Request $request){
+    public function insertArticle(EntityManagerInterface $entityManager, SluggerInterface $slugger, Request $request, ParameterBagInterface $params){
         // on a créé une classe de "gabarit de formulaire HTML" avec php bin/console make:form
 
         // je créé une instance de la classe d'entité article
@@ -60,6 +63,36 @@ class AdminArticleController extends AbstractController
             $articleForm->handleRequest($request);
 
                 if($articleForm->isSubmitted() && $articleForm->isValid()){
+                    //récupère le fichier er  le nom du fichier
+
+                    $imageFile = $articleForm->get('image')->getData();
+
+                    // si il y a bien un fichier envoyé
+                    if($imageFile){
+                        //je récupère son nom
+                    $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+
+                        // je nettoie le nom (sort les caractères spéciaux etc)
+
+                    $safeFilename = $slugger->slug($originalFilename);
+                        // Je rajoute un identifiant unnique au nom
+                    $newFilename = $safeFilename.'-'.uniqid().'.'.$imageFile->guessExtension();
+
+                        try{
+                            //je récupère le chemin de la racine du projet
+                            $rootPath = $params->get('kernel.project_dir');
+
+                            // je déplace le fichier dans le dossier /public/upload en partant de la racine
+                            // du projet, et je renomme le fichier avec le nouveau nom (slugifié et identifiant unique)
+                            $imageFile->move( $rootPath.'/public/uploads', $newFilename);
+                        } catch (FileException $e) {
+                            dd($e->getMessage());
+                        }
+                        // je stocke dans la propriété image
+                        // de l'entité article le nom du fichier
+                        $article->setImage($newFilename);
+                    }
+
                     $entityManager->persist($article);
                     $entityManager->flush();
 
@@ -83,6 +116,7 @@ class AdminArticleController extends AbstractController
         $articleCreateForm->handleRequest($request);
 
         if ($articleCreateForm->isSubmitted() && $articleCreateForm->isValid()) {
+
             $article->setUpdatedAt(new \DateTime('NOW'));
             $entityManager->persist($article);
             $entityManager->flush();

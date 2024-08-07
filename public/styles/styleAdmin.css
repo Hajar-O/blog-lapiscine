@@ -17,6 +17,14 @@ a{
 h1{
     text-align: center;
 }
+.add{
+    text-align: center;
+    background-color: #899a85;
+    padding: 10px;
+    border-radius: 10px;
+    width: 16%;
+    margin: auto;
+}
 /*-------------Flash-message-----------------*/
 .error_message{
     color: white;

@@ -12,7 +12,7 @@ deleteArticleButtons.forEach((deleteArticleButton)=> {
     // donc on attend que le bouton soit cliqué
     // quand il est cliqué, on execute une fonction de callback
     deleteArticleButton.addEventListener('click', ()=> {
-        
+
         // on prend l'élément HTML suivant (c'est à dire ici la popup)
         const popUp = deleteArticleButton.nextElementSibling;
 

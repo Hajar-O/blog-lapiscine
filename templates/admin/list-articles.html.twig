@@ -2,7 +2,7 @@
 {% block content %}
 
     <h1>Liste des article</h1>
-    <p><a href="{{ path('admin_insert_article') }}">ADD article</a></p>
+    <p class="add"><a href="{{ path('admin_insert_article') }}">ADD article</a></p>
 
 
     <section>
@@ -22,7 +22,9 @@
                     <td>{{ article.id }}</td>
                     <td>
                         <div class="pic" >
-                            <img src="{{ article.image }}" alt="">
+                            {# <img src="{{ article.image }}" alt=""> #}
+                            {# pour chercher les images en local #}
+                            <img src="{{ asset('uploads/'~article.image )}}" alt="">
                         </div>
                     </td>
 

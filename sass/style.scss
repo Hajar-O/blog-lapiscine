@@ -1,3 +1,4 @@
+/* sass sass/style.scss:public/styles/style.css --watch */
 *{
   margin:0;
   padding: 0;
@@ -12,7 +13,10 @@ a{
   list-style: none;
 }
 header{
-  background-color: #555555;
+  background-image: url("../public/img/plante.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   display: flex;
   justify-content: start;
   gap: 30%;
