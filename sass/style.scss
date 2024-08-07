@@ -1,53 +1,48 @@
-* {
-  margin: 0;
+*{
+  margin:0;
   padding: 0;
   box-sizing: border-box;
   list-style: none;
 }
-
 /*-------------HEADER------------*/
-img {
-  width: 100%;
+img{
+  width: 100%
 }
-
-a {
+a{
   list-style: none;
 }
-
-header {
+header{
   background-color: #555555;
   display: flex;
   justify-content: start;
   gap: 30%;
   padding: 20px;
   align-items: center;
+  .logo{
+    width: 2%;
+  }
+  .newpaper{
+    width: 100%;
+  }
+  .nav_header li {
+    padding: 20px;
+  }
+  .nav_header ul{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+    padding: 30px;
+  }
 }
-header .logo {
-  width: 2%;
-}
-header .newpaper {
-  width: 100%;
-}
-header .nav_header li {
-  padding: 20px;
-}
-header .nav_header ul {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  align-items: center;
-  padding: 30px;
-}
-
 /*----------------LES ARTICLES------------*/
-.articles {
+.articles{
   display: flex;
   justify-content: center;
   gap: 20px;
   flex-wrap: wrap;
   margin: 20px;
 }
-
 .myArticle {
   background-color: white;
   border: 2px solid #5b5454;
@@ -56,59 +51,57 @@ header .nav_header ul {
   padding: 25px;
   text-align: center;
   transition: all 1s ease;
-}
-.myArticle:hover {
-  background-color: #3b3838;
-  transform: scale(1.1);
-}
 
-.pic {
+
+  &:hover {
+    background-color: #3b3838;
+    transform: scale(1.1);
+  }
+}
+.pic{
   width: 60%;
   margin: auto;
 }
-
 /*----------------SHOW-ARTICLE------------*/
-.oneArticle {
+.oneArticle{
   width: 50%;
   margin: auto;
   text-align: center;
   padding: 30px;
   margin-top: 50px;
   margin-bottom: 50px;
-}
 
+}
 /*----------------LIST-CATEGORY------------*/
-.listCategories {
+.listCategories{
   display: flex;
   justify-content: center;
 }
-
-.eachCategory {
+.eachCategory{
   border: #555555 1px solid;
   width: 20%;
   padding: 30px;
   margin: 40px;
   text-align: center;
 }
-
 /*----------------404------------*/
-.error {
+.error{
   width: 60%;
-}
 
+
+}
 /*----------------FOOTER------------*/
-footer {
+footer{
   text-align: center;
   background-color: #555555;
   padding: 40px;
+  nav{
+    ul{
+      display: flex;
+      justify-content: space-evenly;
+    }
+  }
 }
-footer nav ul {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.test {
+.test{
   width: 5%;
 }
-
-/*# sourceMappingURL=style.css.map */

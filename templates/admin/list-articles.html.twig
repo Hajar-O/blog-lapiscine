@@ -27,18 +27,22 @@
                     </td>
 
                     {# condition ternaire pour afficher les articles n'ayant pas de catégorie #}
-                     <td><p>{{ article.category ? article.category.title :'aucune catégorie' }}</p></td>
+                    <td><p>{{ article.category ? article.category.title :'aucune catégorie' }}</p></td>
                     <td><h2>{{ article.title }}</h2></td>
                     <td>{{ article.createdAt | date('d/m/y') }}</td>
                     <td><p>{{ article.isPublished }}</p></td>
-                    <td><a href="{{ path('admin_update_article',{ id:article.id }) }}">UPDATE</a></td>
-                    <td><a href="{{ path('admin_delete_article',{ id:article.id }) }}">Supprimer</a></td>
+                    <td><a href="{{ path('admin_update_article',{ id:article.id }) }}">UPDATE</a>
 
+                            <p class="jsDeleteButton">DELETE</p>
+
+                        <div class="jsDelete">
+                            <p>Voulez vous vraiment supprimer l'article ?</p>
+                            <a href="{{ path('admin_delete_article',{ id:article.id }) }}">Supprimer</a>
+                        </div>
+
+                    </td>
 
                 </tr>
-
-
-
 
         {% endfor %}
         </table>

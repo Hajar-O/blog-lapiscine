@@ -9,7 +9,10 @@ img{
 }
 a{
   text-decoration: none;
-    color: rgb(51, 73, 44);
+  color: rgb(51, 73, 44);
+    &&:hover{
+        font-weight: bolder;
+    }
 }
 h1{
     text-align: center;
@@ -35,7 +38,7 @@ header {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-
+    height: 50vh;
     display: flex;
     justify-content: start;
     gap: 30%;
@@ -69,7 +72,29 @@ header {
     }
 
 }
+/*----------------form_add_user---------------*/
+.addUserForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30%;
+    margin: auto;
+    background-color: #77966b;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    input{
+        all: unset;
+        background-color: #bdd3b2;
+        margin: 10px;
+        text-align: center;
+    }
+
+}
+
 /*----------------TABLE---------------*/
+
 table{
     margin: 50px;
 }
@@ -119,6 +144,23 @@ li{
 .pic{
     width: 20%;
     margin: auto;
+}
+/*---------------alert-delete--JS----------*/
+.jsDelete{
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: #69855f solid 2px;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 100px
+}
+.jsDeleteButton{
+    color: rgb(51, 73, 44);
+    &&:hover{
+        font-weight: bolder;
+    }
 }
 /*----------------SHOW-ARTICLE------------*/
 .oneArticle{
